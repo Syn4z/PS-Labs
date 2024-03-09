@@ -4,10 +4,10 @@ import matplotlib.pyplot as plt
 
 def randomNoise(Ts=0.01, plot=True):
     if Ts == 0.01:
-        xLabel = 'x1'
+        xLabel = 'x$_1$'
         color = 'r'
     elif Ts == 0.001:
-        xLabel = 'x2'
+        xLabel = 'x$_2$'
         color = 'g'  
     if Ts == 0.01 and not plot:   
         t = np.arange(1, 5, Ts) 
@@ -44,10 +44,10 @@ def digitalFilter(Ts=0.01):
     y1 = np.convolve(x, b, mode='same') / a[0] - np.convolve(x, a[1:], mode='same') / a[0]
 
     if Ts == 0.01:
-        xLabel = 'x1'
+        xLabel = 'x$_1$'
         color = 'r'
     elif Ts == 0.001:
-        xLabel = 'x2'
+        xLabel = 'x$_2$'
         color = 'g'
 
     plt.plot(t, y1, label=xLabel, color=color)

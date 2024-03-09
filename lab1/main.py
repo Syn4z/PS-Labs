@@ -1,5 +1,6 @@
 import matplotlib.pyplot as plt
-from step1 import randomNoise, digitalFilter
+from task1 import randomNoise, digitalFilter
+from task2 import noiseFilter
 
 
 Ts1 = 0.01
@@ -28,3 +29,18 @@ digitalFilter(Ts2)
 plt.tight_layout()
 plt.savefig('./plots/1.5-1.6.png')
 plt.show()
+
+# Plotting the original signal without and with noise 2.1-2.4
+noiseFilter(True)
+
+# Plotting the original signal, the noisy signal and the filtered signal 2.5
+noiseFilter(True, True)
+
+# Plotting the filtered signal for more M 2.6
+noiseFilter(True, True, True)
+
+# Plotting the original, noisy, and filtered signals for s2 2.7
+noiseFilter(False, False, False, True)
+
+# Plotting the filtered signal s2 for more M 2.8
+noiseFilter(False, False, True, True)
