@@ -30,15 +30,12 @@ def digitalFilter(Ts=0.01):
     dz = 0.005
     A = 1
     oms = om0 * Ts
-
     a = np.zeros(3)
     a[0] = 1 + 2 * dz * oms + oms ** 2
     a[1] = -2 * (1 + dz * oms)
     a[2] = 1
-
     b = np.zeros(1)
     b[0] = A * 2 * oms ** 2
-
     t = np.arange(0, 50, Ts)
     x = np.random.rand(len(t))
     y1 = np.convolve(x, b, mode='same') / a[0] - np.convolve(x, a[1:], mode='same') / a[0]
@@ -49,7 +46,6 @@ def digitalFilter(Ts=0.01):
     elif Ts == 0.001:
         xLabel = 'x$_2$'
         color = 'g'
-
     plt.plot(t, y1, label=xLabel, color=color)
     plt.grid(True)
     plt.xlabel('time(s)')

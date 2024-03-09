@@ -18,7 +18,6 @@ def noiseFilter(noise=False, MAF=False, moreM=False, differentS=False):
                 b = np.ones(i) / i
                 y = lfilter(b, 1, x)
                 plt.plot(m, y, label=f'M = {i}')
-
             plt.title('The filtered signal with different M values')
             save = './plots/2.6.png'
         # Plotting The original signal, the noisy signal and the filtered signal 2.5
@@ -26,7 +25,6 @@ def noiseFilter(noise=False, MAF=False, moreM=False, differentS=False):
             M = 3
             b = np.ones(M) / M
             y = lfilter(b, 1, x)
-
             plt.plot(m, s, 'r-', label='Original s$_1$') 
             plt.plot(m, x, 'b--', label='Noisy x')    
             plt.plot(m, y, 'g-.', label='Filtered y')   
@@ -51,14 +49,12 @@ def noiseFilter(noise=False, MAF=False, moreM=False, differentS=False):
                 b = np.ones(i) / i
                 y = lfilter(b, 1, x)
                 plt.plot(m, y, label=f'M = {i}')
-
             plt.title('The filtered signal with different M values')
             save = './plots/2.8.png'
         else:    
             M = 20
             b = np.ones(M) / M
             y = lfilter(b, 1, x)
-
             plt.plot(m, s, 'r-', label='Original s$_2$') 
             plt.plot(m, x, 'b--', label='Noisy x')    
             plt.plot(m, y, 'g-.', label='Filtered y') 
