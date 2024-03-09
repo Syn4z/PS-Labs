@@ -3,22 +3,23 @@ import matplotlib.pyplot as plt
 
 
 def randomNoise(Ts=0.01, plot=True):
-    t = np.arange(0, 5, Ts)
-    x = np.random.rand(len(t))
-
     if Ts == 0.01:
         xLabel = 'x1'
         color = 'r'
     elif Ts == 0.001:
         xLabel = 'x2'
         color = 'g'  
+    if Ts == 0.01 and not plot:   
+        t = np.arange(1, 5, Ts) 
+    t = np.arange(0, 5, Ts)
+    x = np.random.rand(len(t))
 
     if plot:
         plt.plot(t, x, label=xLabel, color=color)
-        plt.title(f'Example of random noise using plot, Ts={Ts}s')
+        plt.title(f'Example of white noise using plot, Ts={Ts}s')
     else:
         plt.hist(x, bins=20, label=xLabel, color=color)    
-        plt.title(f'Example of random noise using hist, Ts={Ts}s')
+        plt.title(f'Example of white noise using hist, Ts={Ts}s')
     plt.grid(True)
     plt.xlabel('time(s)')
     plt.ylabel('function y(t)')
