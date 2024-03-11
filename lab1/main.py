@@ -31,16 +31,16 @@ plt.savefig('./plots/1.5-1.6.png')
 plt.show()
 
 # Plotting the original signal without and with noise 2.1-2.4
-noiseFilter(True)
+noiseFilter(noise=True, MAF=False)
 
 # Plotting the original signal, the noisy signal and the filtered signal 2.5
-noiseFilter(True, True)
+noiseFilter(noise=True, MAF=True)
 
 # Plotting the filtered signal for more M 2.6
-noiseFilter(True, True, True)
+noiseFilter(noise=True, MAF=True, moreM=True)
 
 # Plotting the original, noisy, and filtered signals for s2 2.7
-noiseFilter(False, False, False, True)
+noiseFilter(noise=False, MAF=False, moreM=False, differentS=True)
 
 # Plotting the filtered signal s2 for more M 2.8
-noiseFilter(False, False, True, True)
+noiseFilter(noise=False, MAF=False, moreM=True, differentS=True)
