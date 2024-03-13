@@ -1,21 +1,28 @@
 import matplotlib.pyplot as plt
+import numpy as np
 from task1 import randomNoise, digitalFilter
-from task2 import noiseFilter
+from task2 import noiseFilter, noiseGenerator
 
 
+signalLimit2 = 75
+signalLimit1 = 5
 Ts1 = 0.01
 Ts2 = 0.001
+t1 = np.arange(0, signalLimit2+Ts1, Ts1)
+t2 = np.arange(1, signalLimit2+Ts2, Ts2)
+x1 = np.random.randn(len(t1))
+x2 = np.random.randn(len(t2))
 
 # Plotting the random noise 1.1-1.4
 plt.figure(figsize=(10, 8))
 plt.subplot(2, 2, 1)
-randomNoise(Ts1, True)
+randomNoise(Ts1, signalLimit1, True)
 plt.subplot(2, 2, 2)
-randomNoise(Ts1, False)
+randomNoise(Ts1, signalLimit1, False)
 plt.subplot(2, 2, 3)
-randomNoise(Ts2, True)
+randomNoise(Ts2, signalLimit1, True)
 plt.subplot(2, 2, 4)
-randomNoise(Ts2, False)
+randomNoise(Ts2, signalLimit1, False)
 plt.tight_layout()
 plt.savefig('./plots/1.1-1.4.png')
 plt.show()
@@ -23,24 +30,20 @@ plt.show()
 # Plotting the digital filter 1.5-1.6
 plt.figure(figsize=(10, 8))
 plt.subplot(1, 2, 1)
-digitalFilter(Ts1)
+digitalFilter(Ts1, t1, x1)
 plt.subplot(1, 2, 2)
-digitalFilter(Ts2)
+digitalFilter(Ts2, t2, x2)
 plt.tight_layout()
 plt.savefig('./plots/1.5-1.6.png')
 plt.show()
 
-# Plotting the original signal without and with noise 2.1-2.4
-noiseFilter(noise=True, MAF=False)
-
-# Plotting the original signal, the noisy signal and the filtered signal 2.5
-noiseFilter(noise=True, MAF=True)
-
-# Plotting the filtered signal for more M 2.6
-noiseFilter(noise=True, MAF=True, moreM=True)
-
-# Plotting the original, noisy, and filtered signals for s2 2.7
-noiseFilter(noise=False, MAF=False, moreM=False, differentS=True)
-
-# Plotting the filtered signal s2 for more M 2.8
-noiseFilter(noise=False, MAF=False, moreM=True, differentS=True)
+# Plotting the noise generator 2.1-2.4
+noiseGenerator()
+# Plotting the noise filter 2.5
+noiseFilter()
+# Plotting the noise filter with more M values 2.6
+noiseFilter(moreM=True)
+# Plotting the noise filter with s2 changed initial signal 2.7
+noiseFilter(moreM=False, s2=True)
+# Plotting the noise filter with more M values and s2 changed initial signal 2.8
+noiseFilter(moreM=True, s2=True)
