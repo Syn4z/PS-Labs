@@ -58,7 +58,7 @@ def noiseFilter(moreM=False, s2=False):
             y = lfilter(b, 1, x)
             
             axs[i].plot(m, x, 'g--', label='Noisy x') 
-            axs[i].plot(m, y, 'c-', label=f'Filtered y, M = {M_val}')
+            axs[i].plot(m, y, 'c-', label=f'Filtered y')
             axs[i].plot(m, s, 'r-', label='Original s$_2$')
             axs[i].set_title(f'Original, Noisy, and Filtered Signals with M = {M_val}')
             axs[i].set_xlabel('Time (n)')
