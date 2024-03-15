@@ -63,6 +63,7 @@ def noiseFilter(moreM=False, s2=False):
             axs[i].set_title(f'Original, Noisy, and Filtered Signals with M = {M_val}')
             axs[i].set_xlabel('Time (n)')
             axs[i].set_ylabel('Amplitude')
+            axs[i].grid(True)
             axs[i].legend()
 
         plt.suptitle('The filtered signal with different M values')

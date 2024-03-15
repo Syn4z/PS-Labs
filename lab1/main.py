@@ -29,9 +29,9 @@ plt.show()
 
 # Plotting the digital filter 1.5-1.6
 plt.figure(figsize=(10, 8))
-plt.subplot(1, 2, 1)
+plt.subplot(2, 1, 1)
 digitalFilter(Ts1, t1, x1)
-plt.subplot(1, 2, 2)
+plt.subplot(2, 1, 2)
 digitalFilter(Ts2, t2, x2)
 plt.tight_layout()
 plt.savefig('./plots/1.5-1.6.png')
