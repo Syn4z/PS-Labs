@@ -5,7 +5,7 @@ from task2 import noiseFilter, noiseGenerator
 
 
 signalLimit2 = 75
-signalLimit1 = 5
+signalLimit1 = 1
 Ts1 = 0.01
 Ts2 = 0.001
 t1 = np.arange(0, signalLimit2+Ts1, Ts1)
