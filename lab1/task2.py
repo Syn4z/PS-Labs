@@ -12,7 +12,7 @@ def computeValues(R, S=False):
     d = np.random.rand(len(m)) - 0.5
     x = s + d
     
-    return m, s, x
+    return m, s, x, d
 
 def plotGenerator(save):
     plt.grid(True)
@@ -23,19 +23,24 @@ def plotGenerator(save):
     plt.show()
 
 def noiseGenerator():  
-    m, s, x = computeValues(50)    
+    m, s, x, d = computeValues(50)    
     plt.plot(m, s, label='s$_1$')
     plt.plot(m, x, label='s$_1$ + d')
-    plt.title('The original signal without and with noise')
+    plt.title('The original signal and sum of the original signal and noise')
     save = './plots/2.1-2.4.png'
+    plotGenerator(save)
+    plt.plot(m, s, label='Original s')
+    plt.plot(m, d, label='Noise d')
+    plt.title('The original signal and noise')
+    save = './plots/2.3.png'
     plotGenerator(save)
 
 def noiseFilter(moreM=False, s2=False):
     if not s2:
-        m, s, x = computeValues(50)
+        m, s, x, d = computeValues(50)
         M = [3, 5, 10]
     else:
-        m, s, x = computeValues(1, True)
+        m, s, x, d = computeValues(1, True)
         M = [20, 50, 100]   
     b = np.ones(M[0]) / M[0]
     y = lfilter(b, 1, x)
