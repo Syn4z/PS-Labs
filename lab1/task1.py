@@ -16,12 +16,14 @@ def randomNoise(Ts=0, signalLimit=0, plot=True):
     if plot:
         plt.plot(t, x, label=xLabel, color=color)
         plt.title(f'Example of white noise using plot, Ts={Ts}s')
+        plt.xlabel('Time(s)')
+        plt.ylabel('Function y(t)')
     else:
         plt.hist(x, bins=50, label=xLabel, color=color, edgecolor='black')    
         plt.title(f'Example of white noise using hist, Ts={Ts}s')
+        plt.xlabel('Value')
+        plt.ylabel('Frequency')
     plt.grid(True)
-    plt.xlabel('Time(s)')
-    plt.ylabel('Function y(t)')
     plt.legend()
 
 def digitalFilter(Ts=0, t=0, x=0):
